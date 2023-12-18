@@ -55,7 +55,7 @@ app.get("/", function (req, res) {
   const itemList = Array.from(items, ([uid, text]) => ({ uid, text }));
   // Render the 'list' EJS template and pass in a JavaScript object containing data for the template.
   // 'listTitle' is set to the current day and 'newListItems' is set to the items in our to-do list.
-  res.render("list-map", { listTitle: day, newListItems: itemList });
+  res.render("list-map", { listTitle: `Tasks for ${day}`, newListItems: itemList})
 });
 
 // Define a route handler for HTTP POST requests to the root route.
@@ -64,7 +64,7 @@ app.post("/", function (req, res) {
   // Retrieve the new item from the form input named 'newItem' (from the body of the POST request).
   const itemText = req.body.newItem;
   const listName = req.body.listName;
-  const uid = Date.now().toString(); // Simple UID generator for example purposes
+  const uid = Date.now().toString(); // Simple UID generatorrr for example purposes
 
   console.log("I am at a post route and then listName I am dealing with is... ", listName);
 
